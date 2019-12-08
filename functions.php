@@ -1,23 +1,27 @@
 <?php
 /**
- * Theme functions and definitions
+ * Djupeskog - Child theme for Elementor Hello
  *
- * @package HelloElementorChild
+ * @package HelloDjupeskogElementorChild
+ * @link https://www.yodapp.se/wordpress/
  */
 
 /**
- * Load child theme css and optional scripts
- *
- * @return void
+ * Define Constants
  */
-function hello_elementor_child_enqueue_scripts() {
+define( 'DJUPESKOG_HELLO_CHILD_THEME', '1.0.0' );
+
+/**
+ * Load child theme css and optional scripts
+ */
+function djupeskog_hello_elementor_child_enqueue_scripts() {
 	wp_enqueue_style(
-		'hello-elementor-child-style',
+		'djupeskog_hello-elementor-child-style',
 		get_stylesheet_directory_uri() . '/style.css',
 		[
-			'hello-elementor-theme-style',
+			'djupeskog_hello-elementor-theme-style',
 		],
 		'1.0.0'
 	);
 }
-add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'djupeskog_hello_elementor_child_enqueue_scripts' );
