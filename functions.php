@@ -28,3 +28,25 @@ function djupeskog_hello_elementor_child_enqueue_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'djupeskog_hello_elementor_child_enqueue_scripts' );
+
+
+/**
+ * Custom functions for Djupeskog
+ */
+function init_admin_menu() {
+	if( function_exists('acf_add_options_page') ) {
+
+		acf_add_options_page(array(
+			'page_title' 	=> __('Djupeskog inställningar', 'djupeskog'),
+			'menu_title'	=> __('Djupeskog', 'djupeskog'),
+			'menu_slug' 	=> 'djupeskog-settings',
+			'capability'	=> 'edit_posts',
+			'redirect'		=> false,
+			'icon_url'	=> 'menu_icon',
+			'update_button' => __('Spara &amp; uppdatera', 'djupeskog'),
+			'update_message' => __('Inställningarna sparade', 'djupeskog')
+
+		));	
+	}
+}
+add_action('acf/init', 'init_admin_menu');
